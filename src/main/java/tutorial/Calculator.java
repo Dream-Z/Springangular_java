@@ -1,4 +1,4 @@
-package tutorial.mvc;
+package tutorial;
 
 /**
  * Created by lexx on 1/19/16.

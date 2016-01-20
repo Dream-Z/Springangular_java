@@ -2,9 +2,9 @@ package tutorial;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import tutorial.mvc.Calculator;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -12,20 +12,24 @@ import static org.mockito.Mockito.*;
 /**
  * Created by lexx on 1/19/16.
  */
-public class CalculatorTest {
-    int exp, act;
+public class CarTest {
 
     @Mock
-    private Calculator clc;
+    private Engine engine;
+
+    @InjectMocks
+    private Car car;
 
     @Before
     public void setup(){
         MockitoAnnotations.initMocks(this);
     }
+
     @Test
-    public void testAbs()
+    public void testWarning()
     {
-        when(clc.abs(-20)).thenReturn()
-        assertEquals(0, clc.abs(-4));
+        when(engine.getRpm()).thenReturn(6000);
+        car.accelerate();
+        assertEquals("Slow Down!", car.getMessage());
     }
 }
