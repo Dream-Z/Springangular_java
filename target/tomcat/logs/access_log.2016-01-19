@@ -1,0 +1,10 @@
+127.0.0.1 - - [19/Jan/2016:00:51:36 +0200] "GET /tutor/test HTTP/1.1" 404 - http-bio-8080-exec-1 0
+127.0.0.1 - - [19/Jan/2016:00:51:40 +0200] "GET /tutor/test HTTP/1.1" 404 - http-bio-8080-exec-2 0
+127.0.0.1 - - [19/Jan/2016:00:52:11 +0200] "GET /tutor/test HTTP/1.1" 404 - http-bio-8080-exec-3 0
+127.0.0.1 - - [19/Jan/2016:00:59:07 +0200] "GET /basicAID HTTP/1.1" 404 - http-bio-8080-exec-1 0
+127.0.0.1 - - [19/Jan/2016:00:59:13 +0200] "GET /tutor/test HTTP/1.1" 404 - http-bio-8080-exec-2 0
+127.0.0.1 - - [19/Jan/2016:00:59:15 +0200] "GET /tutor/test HTTP/1.1" 404 - http-bio-8080-exec-3 0
+127.0.0.1 - - [19/Jan/2016:13:42:24 +0200] "GET /tutor/test HTTP/1.1" 404 - http-bio-8080-exec-5 0
+127.0.0.1 - - [19/Jan/2016:13:48:55 +0200] "GET /tutor/test HTTP/1.1" 404 - http-bio-8080-exec-1 0
+127.0.0.1 - - [19/Jan/2016:13:48:56 +0200] "GET /tutor/test HTTP/1.1" 404 - http-bio-8080-exec-2 0
+127.0.0.1 - - [19/Jan/2016:13:51:36 +0200] "GET /basic-web-app/test HTTP/1.1" 200 12 http-bio-8080-exec-1 1017
