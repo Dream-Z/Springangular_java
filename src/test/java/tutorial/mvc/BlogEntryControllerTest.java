@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import tutorial.core.entities.BlogEntry;
@@ -40,8 +39,6 @@ public class BlogEntryControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
-
-
     @Test
     public void getExistingBlogEntry() throws Exception {
         BlogEntry entry = new BlogEntry();
@@ -49,10 +46,19 @@ public class BlogEntryControllerTest {
         entry.setTitle("Test Title");
 
         when(service.find(1L)).thenReturn(entry);
-        mockMvc.perform(get("/rest/blog-entries/1"))
-                .andExpect(jsonPath("$.title", is(entry.getTitle())))
-                .andExpect(jsonPath("$.links[*]/href", hasItem(endsWith("/blog-entries/1"))))
-                .andExpect(status().isOk());
 
+        mockMvc.perform(get("/rest/blog-entries/1"))
+                .andDo(print())
+                .andExpect(jsonPath("$.title", is(entry.getTitle())))
+                .andExpect(jsonPath("$.links[*].href", hasItem(endsWith("/blog-entries/1"))))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void getNonExistingBlogEntry() throws Exception {
+        when(service.find(1L)).thenReturn(null);
+
+        mockMvc.perform(get("/rest/blog-entries/1"))
+                .andExpect(status().isNotFound());
     }
 }
